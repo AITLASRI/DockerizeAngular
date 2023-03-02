@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      My Test Chat App
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list>
+    <ion-item *ngFor="let message of messages">
+      <div class="message" [ngClass]="{'sent': message.sent}">
+        {{ message.text }}
+      </div>
+    </ion-item>
+  </ion-list>
+
+  <div class="input-wrapper">
+    <ion-textarea rows="1" [(ngModel)]="inputText" (keyup.enter)="sendMessage()">
+    </ion-textarea>
+    <ion-button class="send-button" (click)="sendMessage()">
+      <ion-icon name="send"></ion-icon>
+    </ion-button>
+  </div>
+</ion-content>
