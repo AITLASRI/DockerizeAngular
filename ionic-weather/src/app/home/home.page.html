@@ -1,0 +1,61 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      AIT LASRI Weather App
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="main">
+    <span class="city">Rabat</span>
+    <span class="date">{{ res.current.last_updated_epoch | dateFormating }}</span>
+    <div class="icon">
+      <img src= "https://{{ res.current.condition.icon }}" alt="">
+    </div>
+    <span class="description">{{ res.current.condition.text }}</span>
+    <span class="temperature">{{ res.current.temp_c | number: '1.0-0'}}°</span>
+  </div>
+  <ion-grid>
+    <ion-row>
+      <ion-col class="day">{{ res.forecast.forecastday[1].date_epoch | day }}</ion-col>
+      <ion-col class="day">{{ res.forecast.forecastday[2].date_epoch | day }}</ion-col>
+      <ion-col class="day">{{ res.forecast.forecastday[3].date_epoch | day }}</ion-col>
+      <ion-col class="day">{{ res.forecast.forecastday[4].date_epoch | day }}</ion-col>
+      <ion-col class="day">{{ res.forecast.forecastday[5].date_epoch | day }}</ion-col>
+      <ion-col class="day">{{ res.forecast.forecastday[6].date_epoch | day }}</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="precipitation">{{ res.forecast.forecastday[1].day.avghumidity | number: '1.0-0' }}%</ion-col>
+      <ion-col class="precipitation">{{ res.forecast.forecastday[2].day.avghumidity | number: '1.0-0' }}%</ion-col>
+      <ion-col class="precipitation">{{ res.forecast.forecastday[3].day.avghumidity | number: '1.0-0' }}%</ion-col>
+      <ion-col class="precipitation">{{ res.forecast.forecastday[4].day.avghumidity | number: '1.0-0' }}%</ion-col>
+      <ion-col class="precipitation">{{ res.forecast.forecastday[5].day.avghumidity | number: '1.0-0' }}%</ion-col>
+      <ion-col class="precipitation">{{ res.forecast.forecastday[6].day.avghumidity | number: '1.0-0' }}%</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="icon-sm"><img src="https://{{ res.forecast.forecastday[1].day.condition.icon }}"></ion-col>
+      <ion-col class="icon-sm"><img src="https://{{ res.forecast.forecastday[2].day.condition.icon }}"></ion-col>
+      <ion-col class="icon-sm"><img src="https://{{ res.forecast.forecastday[3].day.condition.icon }}"></ion-col>
+      <ion-col class="icon-sm"><img src="https://{{ res.forecast.forecastday[4].day.condition.icon }}"></ion-col>
+      <ion-col class="icon-sm"><img src="https://{{ res.forecast.forecastday[5].day.condition.icon }}"></ion-col>
+      <ion-col class="icon-sm"><img src="https://{{ res.forecast.forecastday[6].day.condition.icon }}"></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="hi-sm">{{ res.forecast.forecastday[1].day.maxtemp_c | number: '1.0-0' }}°</ion-col>
+      <ion-col class="hi-sm">{{ res.forecast.forecastday[2].day.maxtemp_c | number: '1.0-0' }}°</ion-col>
+      <ion-col class="hi-sm">{{ res.forecast.forecastday[3].day.maxtemp_c | number: '1.0-0' }}°</ion-col>
+      <ion-col class="hi-sm">{{ res.forecast.forecastday[4].day.maxtemp_c | number: '1.0-0' }}°</ion-col>
+      <ion-col class="hi-sm">{{ res.forecast.forecastday[5].day.maxtemp_c | number: '1.0-0' }}°</ion-col>
+      <ion-col class="hi-sm">{{ res.forecast.forecastday[6].day.maxtemp_c | number: '1.0-0' }}°</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="lo-sm">{{ res.forecast.forecastday[1].day.mintemp_c | number: '1.0-0' }}°</ion-col>
+      <ion-col class="lo-sm">{{ res.forecast.forecastday[2].day.mintemp_c | number: '1.0-0' }}°</ion-col>
+      <ion-col class="lo-sm">{{ res.forecast.forecastday[3].day.mintemp_c | number: '1.0-0' }}°</ion-col>
+      <ion-col class="lo-sm">{{ res.forecast.forecastday[4].day.mintemp_c | number: '1.0-0' }}°</ion-col>
+      <ion-col class="lo-sm">{{ res.forecast.forecastday[5].day.mintemp_c | number: '1.0-0' }}°</ion-col>
+      <ion-col class="lo-sm">{{ res.forecast.forecastday[6].day.mintemp_c | number: '1.0-0' }}°</ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,85 @@
+
+$size1: 10em;
+$size2: 3.5em;
+$size3: 3em;
+$size4: 2em;
+$size5: 1.5em;
+$size6: 1em;
+
+ion-content {
+  --ion-font-family: 'Sono', sans-serif;
+}
+
+ion-header {
+  --ion-text-color: #fff;
+}
+
+ion-content {
+  --background: linear-gradient(#298089, #6DD5FA) !important;
+  --ion-text-color: #222;
+}
+
+.main {
+  display: block;
+  text-align: center;
+}
+
+.city {
+  display: block;
+  font-size: $size3;
+  font-weight: bold;
+  padding-top: 0.2em;
+}
+
+.date {
+  display: block;
+  font-size: $size5;
+  font-weight: bold;
+}
+
+.description {
+  display: block;
+  font-size: $size4;
+  font-weight: bold;
+}
+
+.temperature {
+  display: block;
+  font-size: $size1;
+  padding: 0px;
+  margin: 0px;
+}
+
+.icon {
+  display: block;
+  font-size: $size4;
+  padding-top: 0px;
+}
+
+ion-grid {
+  text-align: center;
+  position: fixed;
+  bottom: 0%;
+  margin: 0 auto;
+}
+
+.day {
+  display: block;
+  font-weight: bold;
+}
+
+.precipitation {
+  display: block;
+}
+
+.icon-sm {
+  display: block;
+}
+
+.hi-sm {
+  display: block;
+}
+
+.lo-sm {
+  display: block;
+}
