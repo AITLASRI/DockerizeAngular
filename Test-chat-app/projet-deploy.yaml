@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: project-app-deploy
+spec:
+  selector:
+      matchLabels:
+        app: project-app-deploy
+  replicas: 3
+  template:
+      metadata:
+        labels:
+            app: project-app-deploy
+      spec:
+        containers:
+        - name: project-app
+          image: projetacr201.azurecr.io/projet:v1
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              memory: "128Mi"
+              cpu: "100m"
+            limits:
+              memory: "256Mi"
+              cpu: "500m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: project-app-loadbalancer
+spec:
+  type: LoadBalancer
+  selector:
+    app: project-app-deploy
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
